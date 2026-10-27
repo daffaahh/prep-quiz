@@ -41,7 +41,7 @@ export default function ResultsPage() {
         </button>
         <button type="button" className={buttonClass("green")}>
           <ChatIcon />
-          Chat
+          <span className="sr-only sm:not-sr-only">Chat</span>
         </button>
       </BottomBar>
     </main>

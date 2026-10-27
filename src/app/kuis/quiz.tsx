@@ -45,25 +45,25 @@ export function Quiz() {
     <>
       <div
         key={index}
-        className={`mt-14 flex flex-col items-center ${
+        className={`mt-8 flex flex-col items-center sm:mt-14 ${
           direction === "next" ? "animate-slide-from-right" : "animate-slide-from-left"
         }`}
       >
-        <span className="animate-float text-6xl" aria-hidden>
+        <span className="animate-float text-5xl sm:text-6xl" aria-hidden>
           {question.emoji}
         </span>
-        <fieldset className="mt-8 w-full max-w-[692px]">
-          <legend className="mb-9 w-full text-center font-display text-2xl font-bold text-white sm:text-[32px]">
+        <fieldset className="mt-6 w-full max-w-[692px] sm:mt-8">
+          <legend className="mb-6 w-full text-center font-display text-xl font-bold text-white sm:mb-9 sm:text-[32px]">
             {question.question}
           </legend>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {question.options.map((option, i) => {
               const checked = selected === i;
               return (
                 <label
                   key={option.label}
                   style={{ animationDelay: `${120 + i * 70}ms` }}
-                  className={`animate-fade-up flex cursor-pointer items-center gap-5 rounded-2xl bg-white px-8 py-7 font-display font-bold tracking-[0.1em] text-neutral-800 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:text-[21px] ${
+                  className={`animate-fade-up flex cursor-pointer items-center gap-4 rounded-2xl bg-white px-5 py-4 font-display font-bold leading-snug tracking-[0.03em] text-neutral-800 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:gap-5 sm:px-8 sm:py-7 sm:text-[21px] sm:tracking-[0.1em] ${
                     checked ? "ring-3 ring-brand" : ""
                   }`}
                 >
@@ -74,8 +74,8 @@ export function Quiz() {
                     onChange={() => choose(i)}
                     className="sr-only"
                   />
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full border-[3px] border-brand">
-                    {checked && <span className="animate-pop size-4 rounded-full bg-brand" />}
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full border-[3px] border-brand sm:size-9">
+                    {checked && <span className="animate-pop size-3 rounded-full bg-brand sm:size-4" />}
                   </span>
                   {option.label}
                 </label>
@@ -85,8 +85,8 @@ export function Quiz() {
         </fieldset>
       </div>
 
-      <div className="mx-auto mt-20 max-w-[692px] rounded-2xl border-2 border-white/50 bg-white/15 px-6 py-5 font-display font-bold text-white">
-        <div className="flex justify-between sm:text-lg">
+      <div className="mx-auto mt-8 max-w-[692px] rounded-2xl border-2 border-white/50 bg-white/15 px-5 py-4 font-display font-bold text-white sm:mt-20 sm:px-6 sm:py-5">
+        <div className="flex justify-between text-sm sm:text-lg">
           <span>
             Pertanyaan {index + 1} dari {questions.length}
           </span>

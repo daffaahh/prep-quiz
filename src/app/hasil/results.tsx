@@ -72,7 +72,7 @@ export function Results() {
   }
 
   return (
-    <div className="mx-auto mt-14 flex max-w-[980px] flex-col gap-7">
+    <div className="mx-auto mt-10 flex max-w-[980px] flex-col gap-5 sm:mt-14 sm:gap-7">
       {matches.map(({ id, Icon }, rank) => {
         const tone = tones[rank % tones.length];
         const { title, text } = descriptions[id];
@@ -80,13 +80,13 @@ export function Results() {
           <article
             key={id}
             style={{ animationDelay: `${150 + rank * 120}ms` }}
-            className={`animate-fade-up rounded-3xl border-4 bg-white p-7 font-display transition hover:-translate-y-1 hover:shadow-lg ${tone.card}`}
+            className={`animate-fade-up rounded-3xl border-4 bg-white p-5 font-display transition hover:-translate-y-1 hover:shadow-lg sm:p-7 ${tone.card}`}
           >
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4 sm:gap-5">
               <span
-                className={`flex size-20 shrink-0 items-center justify-center rounded-2xl text-[#8b5cf6] ${tone.tile}`}
+                className={`flex size-14 shrink-0 items-center justify-center rounded-2xl text-[#8b5cf6] sm:size-20 ${tone.tile}`}
               >
-                <Icon className="size-11" />
+                <Icon className="size-8 sm:size-11" />
               </span>
               <div>
                 {rank === 0 && (
@@ -94,12 +94,12 @@ export function Results() {
                     Paling cocok
                   </span>
                 )}
-                <h2 className={`mt-1 text-2xl font-bold sm:text-[27px] ${tone.title}`}>
+                <h2 className={`mt-1 text-xl font-bold leading-tight sm:text-[27px] ${tone.title}`}>
                   {title}
                 </h2>
               </div>
             </div>
-            <p className="mt-6 leading-relaxed text-neutral-700 sm:text-[19px]">{text}</p>
+            <p className="mt-5 leading-relaxed text-neutral-700 sm:mt-6 sm:text-[19px]">{text}</p>
             <Link
               href={`/#metode-${id}`}
               className={`group mt-5 inline-flex items-center gap-2 font-bold uppercase tracking-[0.05em] sm:text-lg ${tone.title}`}
